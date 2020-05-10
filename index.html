@@ -1,16 +1,27 @@
 <html>
 	<head>
-<link rel="stylesheet" href="https://cdn.jcu.edu.au/web-framework/2.0.0-alpha.6/css/jcu-web-framework.min.css">
-<link rel="stylesheet" href="https://cdn.jcu.edu.au/web-framework/2.0.0-alpha.6/css/fonts.min.css">
-
-
-	</head><body>
-<h1>
-deltaR Australia
-</h1><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-<!-- Before the closing </body> tag in your project -->
-<script src="https://cdn.jcu.edu.au/web-framework/2.0.0-alpha.6/js/jquery.min.js"></script>
-<script src="https://cdn.jcu.edu.au/web-framework/2.0.0-alpha.6/js/popper.min.js"></script>
-<script src="https://cdn.jcu.edu.au/web-framework/2.0.0-alpha.6/js/bootstrap.min.js"></script>
-</body>	
+		<script type="text/javascript" src="js/delta_r.js"></script>
+	</head>
+	<body>
+		<div id="header">
+			<h1>&Delta;R Calculator</h1>
+			<p> Enter Latitude and Longitude (or click on the map).  If &delta;13C and/or &delta;18O are known, enter those, and click the button to calculate &Delta;R. An explanation of what you see may be found <a href="deltaRmethod/deltaRmethod.html">here</a></p><hr/>
+		</div>
+		<form>
+			<table>
+				<tr><th>Longitude:</th><td><input type="text" id="longitude" name="longitude" value="144"></td><td>Enter Decimal Longitude</td></tr>
+				<tr><th>Latitude:</th><td><input type="text" id="latitude" name="latitude" value="-38"></td><td>Enter Decimal Latitude</td></tr>
+				<tr><th>&delta;13C:</th><td><input type="text" id="d13C" name="d13C"></td><td>Enter &delta;13C.  Zero is a value which will influence the result.  If no &delta;13C value available, empty the cell</td></tr>
+				<tr><th>&delta;18O:</th><td><input type="text" id="d18O" name="d18O"></td><td>Enter &delta;18O.  Zero is a value which will influence the result.  If no &delta;18O value available, empty the cell</td></tr>
+				<tr><td></td><td><button type="button" onclick="calculate(document.getElementById('latitude').value, document.getElementById('longitude').value,document.getElementById('d13C').value,document.getElementById('d18O').value)">Calculate &Delta;R</button>
+			</table>
+		</form>
+		<div id="result" width="100%" height="100px"></div>
+		<script>get_coords();</script>
+		<script>calculate(document.getElementById('latitude').value, document.getElementById('longitude').value,document.getElementById('d13C').value,document.getElementById('d18O').value);</script>
+		<div id="image">
+			<a href="index.html">
+				<img src="aus.png" alt="My Image" ismap>
+			</a>
+	</body>
 </html>
